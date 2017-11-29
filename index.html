@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="css/mobiscroll.custom-2.17.0.min.css">
+  <style media="screen">
+    .dw-i{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- demo1 -->
+  <select name="sex" id="sex" class="am-text-center">
+      <option value="1">男</option>
+      <option value="2">女</option>
+  </select>
+  <br><br>
+  <!-- demo2 -->
+  <input id="zzmm" name="zzmm" />
+  <br><br>
+  <!-- demo3 -->
+  <input id="times" name="times" />
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/mobiscroll.custom-2.17.0.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+
+    // sex select
+    $('#sex').mobiscroll().select({
+      theme: 'ios',// 主题
+      lang: 'zh',
+      cancelText:'取消',// 取消按钮的text
+      setText:'确定',// 确认按钮的text
+      display: 'bottom',
+      minWidth: 200// 每个选择条的宽度
+    });
+
+    // arr select
+    $('#zzmm').mobiscroll().select({
+      theme: 'ios',
+      lang: 'zh',
+      cancelText:'取消',// 取消按钮的text
+      setText:'确定',// 确认按钮的text
+      display: 'bottom',
+      minWidth: 200,
+      data: [
+        {
+          text: 'Paris',
+          value: '1'
+        },
+        {
+          text: 'New York',
+          value: '2',
+          disabled: true //禁止选择
+        },
+        {
+          text: 'bei jing',
+          value: '3'
+        }
+      ]
+    });
+    // time select
+    // time select
+    var now = new Date(),
+      max = new Date(now.getFullYear() + 100, now.getMonth(), now.getDate());
+
+    $('#times').mobiscroll().date({
+      theme: 'ios',
+      lang: 'zh',
+      display: 'bottom',
+      max: max,
+      dateFormat: 'yy.mm.dd', // 日期格式
+      setText: '确定', //确认按钮名称
+      cancelText: '取消',//取消按钮名籍我
+      dateOrder: 'yymmdd' //面板中日期排列格式
+    });
+
+  })
+</script>
+</html>
